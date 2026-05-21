@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageButton
+                android:id="@+id/nav_menu_btn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/hamburger_menu_icon" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="sans-serif"
+                android:text="Araw-Araw"
+                android:textColor="@color/font_color_blue"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/refresh_btn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_refresh" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/middle_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="20dp"
+                    android:orientation="vertical">
+
+                    <!-- GREETING BOX -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/greeting_textv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="40dp"
+                            android:background="@drawable/rounded_main_bg"
+                            android:padding="12dp"
+                            android:text=""
+                            android:textColor="@color/font_color_dark"
+                            android:textSize="18sp" />
+                    </RelativeLayout>
+
+                    <!-- MAIN WEATHER CARD -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:background="@drawable/rounded_stroke_main_bg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/location_name_textv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/font_color_blue"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/temperature_textv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/font_color_dark"
+                                android:textSize="65sp"
+                                android:fontFamily="serif"
+                                android:textFontWeight="800" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="°"
+                                android:textColor="@color/font_color_dark"
+                                android:textSize="65sp"
+                                android:fontFamily="serif"
+                                android:textFontWeight="800" />
+
+                            <TextView
+                                android:id="@+id/unit_symbol_textv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="C"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/font_color_dark"
+                                android:textSize="30sp" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:id="@+id/current_weather_ic"
+                                android:layout_width="80dp"
+                                android:layout_height="75dp"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/rounded_stroke_blue">
+
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:background="@drawable/stars" />
+
+                            <TextView
+                                android:id="@+id/id_weather_suggestion_textv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:layout_marginLeft="5dp"
+                                android:textSize="16sp"
+                                android:textColor="@color/font_color_dark_blue" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:layout_marginTop="15dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <!-- Humidity -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/rounded_main_bg"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:background="@drawable/humidity_percentage_24px"
+                                    android:layout_marginRight="8dp"/>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="HUMIDITY"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/font_color_dark" />
+
+                                    <TextView
+                                        android:id="@+id/humidity_textv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="--%"
+                                        android:fontFamily="arial"
+                                        android:textFontWeight="800"
+                                        android:textSize="17sp"
+                                        android:textColor="@color/font_color_dark" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="0dp" />
+
+                            <!-- UV Index -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/rounded_main_bg"
+                                android:paddingLeft="15dp"
+                                android:paddingRight="15dp"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:background="@drawable/uv_index_24"
+                                    android:layout_marginRight="8dp" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="UV INDEX"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/font_color_dark" />
+
+                                    <TextView
+                                        android:id="@+id/uv_index_textv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="--"
+                                        android:fontFamily="arial"
+                                        android:textFontWeight="800"
+                                        android:textSize="18sp"
+                                        android:textColor="@color/font_color_dark" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- QUICK INQUIRIES SECTION -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QUICK INQUIRIES"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="arial"
+                        android:letterSpacing="0.1"
+                        android:textColor="@color/font_color_dark" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="10dp">
+                        <!-- Row 1 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+                            <LinearLayout
+                                android:id="@+id/btn_laundry"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/rounded_stroke_main_bg"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="28dp"
+                                    android:background="@drawable/washing_machine_ic" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pwede ba\nmaglaba?"
+                                    android:gravity="center"
+                                    android:textColor="@color/font_color_dark" />
+                            </LinearLayout>
+                            <View
+                                android:layout_width="15dp"
+                                android:layout_height="0dp" />
+                            <LinearLayout
+                                android:id="@+id/btn_umbrella"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/rounded_stroke_main_bg"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="28dp"
+                                    android:background="@drawable/umbrella_ic" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bring umbrella?\n"
+                                    android:gravity="center"
+                                    android:textColor="@color/font_color_dark" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <!-- Row 2 -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+                            <LinearLayout
+                                android:id="@+id/btn_sampay"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/rounded_stroke_main_bg"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="28dp"
+                                    android:background="@drawable/sampay_ic" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Maganda ba\nMagsampay?"
+                                    android:gravity="center"
+                                    android:textColor="@color/font_color_dark" />
+                            </LinearLayout>
+                            <View
+                                android:layout_width="15dp"
+                                android:layout_height="0dp" />
+                            <LinearLayout
+                                android:id="@+id/btn_outdoor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/rounded_stroke_main_bg"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground">
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="28dp"
+                                    android:background="@drawable/outdoor_ic" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Outdoor\nActivities?"
+                                    android:gravity="center"
+                                    android:textColor="@color/font_color_dark" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- PRO-TIP SECTION -->
+                    <RelativeLayout
+                        android:id="@+id/pro_tip_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="140dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/rounded_pro_tip_card"
+                        android:padding="20dp"
+                        android:elevation="4dp">
+
+                        <LinearLayout
+                            android:id="@+id/pro_tip_header"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_pro_tip_label"
+                            android:paddingLeft="12dp"
+                            android:paddingRight="12dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/ic_ai_stars"
+                                app:tint="@color/font_color_dark" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:text="PRO-TIP"
+                                android:textColor="@color/font_color_dark"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.05" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="-10dp"
+                            android:layout_marginEnd="-10dp"
+                            android:alpha="0.15"
+                            android:src="@drawable/ic_ai_stars"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:id="@+id/pro_tip_textv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/pro_tip_header"
+                            android:layout_marginTop="16dp"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Stay safe and keep track of the weather updates!"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- Steady AI Icon Star -->
+            <ImageButton
+                android:id="@+id/ai_star_btn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:background="@drawable/bg_mic_button"
+                android:src="@drawable/ic_ai_stars"
+                android:elevation="6dp" />
+        </FrameLayout>
+
+        <!-- BOTTOM NAVIGATION -->
+        <LinearLayout
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Home -->
+            <LinearLayout
+                android:id="@+id/nav_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/bg_nav_item_selected"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_home"
+                        app:tint="@color/white" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textSize="12sp"
+                    android:textColor="@color/nav_blue" />
+            </LinearLayout>
+
+            <!-- Insights -->
+            <LinearLayout
+                android:id="@+id/nav_insights"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/ic_insights_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_insights"
+                    app:tint="@color/font_color_dark" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Insights"
+                    android:textSize="12sp"
+                    android:textColor="@color/font_color_dark" />
+            </LinearLayout>
+
+            <!-- Settings -->
+            <LinearLayout
+                android:id="@+id/nav_settings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/ic_settings_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/font_color_dark" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textSize="12sp"
+                    android:textColor="@color/font_color_dark" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- AI Chat Overlay -->
+    <include layout="@layout/ai_chat_overlay" />
+
+    <!-- Loading Overlay -->
+    <FrameLayout
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+        <ProgressBar
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/white" />
+    </FrameLayout>
+
+    <!-- Include the navigation menu (Last child for DrawerLayout) -->
+    <include layout="@layout/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

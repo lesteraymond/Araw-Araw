@@ -1,0 +1,79 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java/Kotlin class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+build/
+
+# Gradle files
+.gradle/
+local.properties
+.gradle-cache/
+
+# Android Studio
+.idea/
+*.iml
+navigationEditor.xml
+captures/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Kotlin
+.kotlin/
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# Firebase / Google Services
+google-services.json
+
+# NDK
+obj/
+
+# Temporary files
+*.tmp
+*.temp
+
+# IntelliJ
+*.ipr
+*.iws
+
+# Mac/Linux hidden files
+.*.swp
+.env
